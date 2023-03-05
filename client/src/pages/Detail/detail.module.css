@@ -1,0 +1,88 @@
+.detailWrapper {
+ padding: 50px 50px;
+ scroll-behavior: smooth;
+ background-color: rgba(16, 18, 27, 0.6);
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+
+.detailGame {
+
+ display: flex;
+ flex-direction: column;
+ gap: 50px;
+}
+
+.loading {
+ align-self: center;
+ justify-self: center;
+ width: 300px;
+}
+
+.mainContent {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 32px;
+ align-items: center;
+ ;
+}
+
+.content {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ align-items: center;
+}
+
+.content h1,
+.content p,
+.content span {
+ margin: 0;
+}
+
+.content h1 {
+ font-size: 2.5rem;
+}
+
+.content p {
+ text-align: left;
+}
+
+.data {
+ display: flex;
+ gap: 50px;
+ align-self: center;
+}
+
+.features {
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ gap: 10px;
+ width: 100%;
+}
+
+.feature {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
+}
+
+.gallery {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+
+.trailers {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+ gap: 30px;
+}
+
+.trailers video {
+ width: 100%;
+ height: auto;
+}

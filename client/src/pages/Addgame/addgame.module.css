@@ -1,0 +1,12 @@
+.addGameContainer {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: 100%;
+}
+
+.addGameForm {
+ display: flex;
+ flex-direction: column;
+ gap: 18px;
+}
