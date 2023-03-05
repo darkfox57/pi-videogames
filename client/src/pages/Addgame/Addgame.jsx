@@ -149,7 +149,9 @@ export default function AddGame() {
             ))}
             <span>{errors.platforms}</span>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.sendBtn}>
+            Submit
+          </button>
         </form>
       </div>
     </>
