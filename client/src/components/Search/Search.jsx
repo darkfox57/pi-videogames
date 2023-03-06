@@ -11,18 +11,17 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault()
     navigate(`/search-results?name=${search}`)
-    if (Object.keys(search).length) {
-      e.target.reset
-    }
+    setSearch('')
   }
   return (
     <form onSubmit={handleSubmit} className={styles.searchBar}>
       <input
         className={styles.input}
-        type="text"
+        type="search"
         placeholder="Search your favorite videogame"
         name={search}
         onChange={handleInputValue}
+        value={search}
       />
       <button className={styles.submit} type="submit">
         Search

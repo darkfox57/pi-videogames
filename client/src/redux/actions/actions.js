@@ -7,6 +7,10 @@ export const SEARCH_GAME = 'SEARCH_GAME'
 export const RESET_GAME = 'RESET_GAME';
 export const GET_GENRES = 'GET_GENRES'
 export const ADD_GAME = 'ADD_GAME'
+export const ORDER_NAMES = 'ORDER_NAMES'
+export const FILTER_GENRES = 'FILTER_GENRES'
+export const ORDER_RATINGS = 'ORDER_RATINGS'
+export const FILTER_ORIGIN = 'FILTER_ORIGIN'
 
 
 export const getGames = () => async (dispatch) => {
@@ -72,7 +76,6 @@ export const getGenres = () => async (dispatch) => {
 export const addGame = (gameData) => {
   return async (dispatch) => {
     try {
-      console.log(gameData);
       const response = await axios.post('http://localhost:3001/videogames/addgame', gameData, {
         headers: {
           'Content-Type': 'application/json'
@@ -91,8 +94,35 @@ export const addGame = (gameData) => {
   };
 };
 
-
 export const resetGame = () => ({
   type: RESET_GAME,
   payload: {},
 });
+
+export const orderNames = (name) => ({
+  type: ORDER_NAMES,
+  payload: name
+})
+
+export const orderRating = (rating) => ({
+  type: ORDER_RATINGS,
+  payload: rating
+})
+
+
+
+export const filterByGenres = (genre) => ({
+  type: FILTER_GENRES,
+  payload: genre
+})
+
+export const filterByOrigin = (origin) => ({
+  type: FILTER_ORIGIN,
+  payload: origin
+})
+
+
+
+
+
+

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import loadgif from '../../assets/loading-cat.gif'
-// import loadgif from '../../assets/anime-gaming.gif'
 
 import { getGames } from '../../redux/actions/actions'
 import Card from '../Card/Card'
@@ -12,7 +11,7 @@ export default function Cards() {
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(false)
 
-  const games = useSelector((state) => state.games)
+  const games = useSelector((state) => state.filtredGames)
 
   useEffect(() => {
     setLoading(true)
