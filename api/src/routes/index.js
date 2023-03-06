@@ -24,7 +24,7 @@ router.use('/videogames', (req, res, next) => {
 router.use('/videogames', search); // http://localhost:3001/videogames/?name=juego
 
 
-router.use('/videogames/addgame', addGames) // http://localhost:3001/videogames/addgame
+router.use('/videogames', addGames) // http://localhost:3001/videogames/
 router.use('/videogame', gameId) // http://localhost:3001/game/:id
 router.use('/genres', addGenres) // http://localhost:3001/genres/get
 

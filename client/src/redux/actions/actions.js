@@ -73,25 +73,23 @@ export const getGenres = () => async (dispatch) => {
   }
 }
 
-export const addGame = (gameData) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.post('http://localhost:3001/videogames/addgame', gameData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      dispatch({
-        type: 'ADD_GAME',
-        payload: response.data
-      });
-    } catch (error) {
-      dispatch({
-        type: GET_ERRORS,
-        payload: error
-      })
-    }
-  };
+export const addGame = (gameData) => async (dispatch) => {
+  try {
+    const response = await axios.post('http://localhost:3001/videogames/', gameData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    dispatch({
+      type: 'ADD_GAME',
+      payload: response.data
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error
+    })
+  }
 };
 
 export const resetGame = () => ({
