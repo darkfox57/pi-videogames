@@ -10,6 +10,7 @@ const { Genres } = require('../db')
 
 const url = 'https://api.rawg.io/api/'
 
+// Obtener todos los géneros existentes en la API e ingresarlos a la base de datos si no existen
 addGenres.get('/get', async (req, res) => {
  try {
   const response = await axios.get(`${url}genres${API_KEY}`);

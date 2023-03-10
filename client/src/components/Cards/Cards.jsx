@@ -20,6 +20,10 @@ export default function Cards() {
     })
   }, [dispatch])
 
+  const itemsPerPage = 15
+  const totalPages = Math.ceil(games.length / itemsPerPage)
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1)
+
   return (
     <section className={styles.cardsWrapper}>
       <div className={styles.cardsContainer}>
@@ -28,18 +32,20 @@ export default function Cards() {
               <img src={loadgif} alt="Loading..." className={styles.loading} />
             )
           : null}
-        {games?.slice((currentPage - 1) * 15, currentPage * 15).map((game) => (
-          <Card
-            key={game.id}
-            id={game.id}
-            title={game.name}
-            image={game.image}
-            rating={game.rating}
-            genres={game.genres}
-            released={game.launchDate}
-            stores={game.stores}
-          />
-        ))}
+        {games
+          ?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+          .map((game) => (
+            <Card
+              key={game.id}
+              id={game.id}
+              title={game.name}
+              image={game.image}
+              rating={game.rating}
+              genres={game.genres}
+              released={game.launchDate}
+              stores={game.stores}
+            />
+          ))}
       </div>
       <div className={styles.pagination}>
         <button
@@ -48,6 +54,17 @@ export default function Cards() {
         >
           Anterior
         </button>
+        {pageNumbers.map((pageNumber) => (
+          <button
+            key={pageNumber}
+            className={`${styles.pageNumber} ${
+              currentPage === pageNumber ? styles.active : ''
+            }`}
+            onClick={() => setCurrentPage(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+        ))}
         <button
           disabled={games.length <= currentPage * 15}
           onClick={() => setCurrentPage(currentPage + 1)}

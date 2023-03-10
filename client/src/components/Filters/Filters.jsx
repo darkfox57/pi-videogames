@@ -77,11 +77,12 @@ export default function Filters() {
       <div>Filters</div>
       <div className={styles.selectors}>
         <div className={styles.orderName}>
-          <p>Order by name</p>
+          <p>Sort by name</p>
           <select
             name="orderByName"
             defaultValue={'default'}
             onChange={handleFilter}
+            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrder.map((element) => (
@@ -92,11 +93,12 @@ export default function Filters() {
           </select>
         </div>
         <div className={styles.orderRating}>
-          <p>Order by Rating</p>
+          <p>Sort by Rating</p>
           <select
             name="orderByRating"
             defaultValue={'default'}
             onChange={handleFilter}
+            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrder.map((element) => (
@@ -112,6 +114,7 @@ export default function Filters() {
             name="filterByGenres"
             defaultValue={'default'}
             onChange={handleFilter}
+            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {genres.map((genre) => (
@@ -127,6 +130,7 @@ export default function Filters() {
             name="Origin"
             defaultValue={'default'}
             onChange={handleFilter}
+            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrigin.map((o) => (

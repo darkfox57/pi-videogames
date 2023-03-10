@@ -6,7 +6,6 @@ const {
  API_KEY
 } = process.env;
 
-const apiKey = '?key=6cdb676beea34f11b380e75a7a90b293'
 const url = 'https://api.rawg.io/api/'
 
 const { Genres, Videogame } = require('../db')

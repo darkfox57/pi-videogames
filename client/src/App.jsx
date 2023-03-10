@@ -14,7 +14,7 @@ function App() {
   const location = useLocation()
   return (
     <div className="App">
-      <Header />
+      {location.pathname === '/' ? '' : <Header />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />

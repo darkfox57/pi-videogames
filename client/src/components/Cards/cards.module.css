@@ -3,7 +3,7 @@
  flex-direction: column;
  padding: 50px;
  background-color: rgba(16, 18, 27, 0.4);
- border: 1px solid rgba(223, 223, 223, 0.45);
+ border-left: 1px solid rgba(223, 223, 223, 0.45);
  min-height: 100vh;
 }
 
@@ -17,20 +17,33 @@
  display: flex;
  justify-content: center;
  margin-top: 20px;
+ gap: 10px;
 }
 
+
+
 .pagination button {
- margin: 0 10px;
- padding: 5px 10px;
  border: none;
- border-radius: 5px;
- background-color: #0077ff;
- color: #fff;
+ background-color: #14162b;
+ border-radius: 4px;
+ padding: 5px 20px;
+ transition: padding 0.3s ease-in-out;
  cursor: pointer;
 }
 
-.pagination button[disabled] {
- background-color: #ccc;
+.pageNumber {
+ border: none;
+ background-color: #14162b;
+ border-radius: 4px;
+ padding: 5px;
+ transition: padding 0.3s ease-in-out;
+ cursor: pointer;
+}
+
+.pagination button[disabled],
+.active {
+ background-color: #ccc !important;
+ color: #14162b;
  cursor: default;
 }
 

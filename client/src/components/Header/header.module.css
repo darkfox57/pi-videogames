@@ -31,3 +31,9 @@
  text-decoration: none;
  color: #fff;
 }
+
+.item {
+ display: flex;
+ gap: 10px;
+ align-items: center;
+}

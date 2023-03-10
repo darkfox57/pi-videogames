@@ -1,13 +1,13 @@
-import { FILTER_GENRES, FILTER_ORIGIN, GET_ERRORS, GET_GAME, GET_GAMES, GET_GENRES, ORDER_NAMES, ORDER_RATINGS, RESET_GAME, SEARCH_GAME } from '../actions/actions';
+import { ADD_GAME, FILTER_GENRES, FILTER_ORIGIN, GET_ERRORS, GET_GAME, GET_GAMES, GET_GENRES, ORDER_NAMES, ORDER_RATINGS, RESET_GAME, SEARCH_GAME } from '../actions/actions';
 
 const initialState = {
  game: {},
  error: null,
  games: [],
+ filtredGames: [],
  genres: [],
  searched: [],
- addedgame: {},
- filtredGames: []
+ addedgame: {}
 }
 
 export default function (state = initialState, action) {
@@ -28,7 +28,7 @@ export default function (state = initialState, action) {
     ...state,
     game: action.payload
    }
-  case 'ADD_GAME':
+  case ADD_GAME:
    return {
     ...state,
     addedgame: action.payload,
@@ -43,6 +43,8 @@ export default function (state = initialState, action) {
     ...state,
     genres: action.payload
    }
+
+
   case ORDER_NAMES:
    const copyfilter = [...state.games];
    let ordered;
@@ -62,6 +64,8 @@ export default function (state = initialState, action) {
     return { ...state, filtredGames: copyfilter };
    }
    return { ...state, filtredGames: ordered };
+
+
 
 
   case ORDER_RATINGS:
@@ -101,7 +105,6 @@ export default function (state = initialState, action) {
     originFilter = copyOrigins.filter((game) => isNaN(game.id));
    } else if (action.payload === 'Default') {
     // Si no se especifica origen, retornar estado original
-
     return { ...state, filtredGames: copyOrigins };
    }
    return { ...state, filtredGames: originFilter };

@@ -81,7 +81,7 @@ export const addGame = (gameData) => async (dispatch) => {
       }
     });
     dispatch({
-      type: 'ADD_GAME',
+      type: ADD_GAME,
       payload: response.data
     });
   } catch (error) {

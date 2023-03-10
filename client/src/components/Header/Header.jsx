@@ -28,6 +28,7 @@ export default function Header() {
                 isActive ? `${styles.item} ${styles.current}` : styles.item
               }
             >
+              <i className="fa-solid fa-house"></i>
               <span>Home</span>
             </NavLink>
           </li>
@@ -39,6 +40,7 @@ export default function Header() {
                 isActive ? `${styles.item} ${styles.current}` : styles.item
               }
             >
+              <i className="fa-solid fa-plus"></i>
               <span>Add Game</span>
             </NavLink>
           </li>

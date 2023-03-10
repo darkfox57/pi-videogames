@@ -1,4 +1,5 @@
 @import url("https://use.typekit.net/myo0cie.css");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -17,6 +18,7 @@
 }
 
 * {
+  outline: none;
   box-sizing: border-box;
 }
 
@@ -60,11 +62,12 @@ h1 {
   font-family: inherit;
   background: linear-gradient(to bottom right, #FC0441, #F62DA8);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, scale 0.3s ease-in-out;
 }
 
 .main-button:hover {
   border-color: #646cff;
+  scale: 1.05;
 }
 
 .main-button:focus,
@@ -85,4 +88,15 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(1 2 3 / 40%);
+  border-radius: 10px;
 }
