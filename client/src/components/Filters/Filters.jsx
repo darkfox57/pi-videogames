@@ -54,15 +54,11 @@ export default function Filters() {
     }
     if (name === 'orderByName') {
       dispatch(orderNames(value))
-      document.getElementsByName('filterByGenres')[0].value = 'Default'
       document.getElementsByName('orderByRating')[0].value = 'Default'
-      document.getElementsByName('Origin')[0].value = 'Default'
     }
     if (name === 'orderByRating') {
       dispatch(orderRating(value))
-      document.getElementsByName('filterByGenres')[0].value = 'Default'
       document.getElementsByName('orderByName')[0].value = 'Default'
-      document.getElementsByName('Origin')[0].value = 'Default'
     }
     if (name === 'Origin') {
       dispatch(filterByOrigin(value))
@@ -71,11 +67,21 @@ export default function Filters() {
       document.getElementsByName('orderByRating')[0].value = 'Default'
     }
   }
+  const handleReset = () => {
+    dispatch(filterByGenres('Default'))
+    dispatch(orderNames('Default'))
+    dispatch(orderRating('Default'))
+    dispatch(filterByOrigin('Default'))
+    document.getElementsByName('filterByGenres')[0].value = 'Default'
+    document.getElementsByName('orderByName')[0].value = 'Default'
+    document.getElementsByName('orderByRating')[0].value = 'Default'
+    document.getElementsByName('Origin')[0].value = 'Default'
+  }
 
   return (
     <section className={styles.filterSection}>
-      <div>Filters</div>
       <div className={styles.selectors}>
+        <h2>Filters</h2>
         <div className={styles.orderName}>
           <p>Sort by name</p>
           <select
@@ -140,6 +146,9 @@ export default function Filters() {
             ))}
           </select>
         </div>
+        <button className={styles.resetButton} onClick={handleReset}>
+          Reset Filters
+        </button>
       </div>
     </section>
   )

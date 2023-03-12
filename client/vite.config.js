@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     watch: true
+  },
+  server: {
+    watch: {
+      // Aquí agregamos todos los archivos dentro de "src"
+      include: 'src/**'
+    }
   }
 })

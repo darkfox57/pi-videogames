@@ -38,37 +38,26 @@ export default function AddGame() {
   const handleInputChange = (e) => {
     const { name, value } = e.target
     let updatedGameData = { ...gameData }
-
-    // Checkboxes: update the corresponding array of objects
     if (e.target.type === 'checkbox') {
       let selectedValues = updatedGameData[name]
       if (e.target.checked) {
-        // Add the selected value to the array
         selectedValues.push(value)
       } else {
-        // Remove the selected value from the array
         selectedValues = selectedValues.filter((val) => val !== value)
       }
       updatedGameData[name] = selectedValues
     } else {
-      // Other inputs: update the value directly
       updatedGameData[name] = value
     }
-
     setGameData(updatedGameData)
     setErrors(validate(updatedGameData))
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
-    // Validate the form data
     const errors = validate(gameData)
     setErrors(errors)
-
-    // If there are no errors, submit the form
     if (Object.keys(errors).length === 0) {
-      // Dispatch the addGame action
       dispatch(addGame(gameData))
     }
   }

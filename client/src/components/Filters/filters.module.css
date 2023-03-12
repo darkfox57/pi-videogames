@@ -7,6 +7,26 @@
  align-items: center;
 }
 
+.selectors {
+ position: absolute;
+}
+
+
+.resetButton {
+ border: none;
+ background-color: #14162b;
+ border-radius: 4px;
+ padding: 10px 5px;
+ transition: padding 0.3s ease-in-out;
+ margin-top: 30px;
+ min-width: 200px;
+ transition: transform 0.3s ease-in-out;
+}
+
+.resetButton:hover {
+ transform: scale(1.05);
+}
+
 .inputFilter {
  width: 100%;
  height: 100%;
