@@ -71,8 +71,14 @@ export default function Detail() {
               </div>
             </div>
           </div>
+        </div>
+      ) : null}
+    </section>
+  )
+}
 
-          <div className={styles.gallery}>
+{
+  /* <div className={styles.gallery}>
             {game.short_screenshots?.map((img, index) => (
               <img key={index} src={img} alt={`${img} ${index}`} />
             ))}
@@ -84,9 +90,5 @@ export default function Detail() {
                 Tu navegador no soporta la reproducción de video.
               </video>
             ))}
-          </div>
-        </div>
-      ) : null}
-    </section>
-  )
+          </div> */
 }

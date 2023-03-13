@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
-import Header from './components/header/Header'
+import Header from './components/Header/Header'
 import Addgame from './pages/Addgame/Addgame'
 import Detail from './pages/Detail/Detail'
-import Home from './pages/Home/home'
+import Home from './pages/Home/Home'
 import Landing from './pages/Landing/Landing'
 import SearchResults from './pages/Search_results/SearchResults'
 

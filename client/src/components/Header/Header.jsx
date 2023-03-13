@@ -7,7 +7,8 @@ import styles from './header.module.css'
 export default function Header() {
   const onSearch = () => {}
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    console.log(e.target)
     setTimeout(() => {
       window.scrollTo(0, 0)
     }, 100)
