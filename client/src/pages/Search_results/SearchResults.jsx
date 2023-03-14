@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import { searchGame } from '../../redux/actions/actions'
 import styles from './results.module.css'

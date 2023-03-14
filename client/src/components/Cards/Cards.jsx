@@ -23,7 +23,9 @@ export default function Cards() {
   const itemsPerPage = 15
   const totalPages = Math.ceil(games.length / itemsPerPage)
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1)
-
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <section className={styles.cardsWrapper}>
       <div className={styles.cardsContainer}>
@@ -50,7 +52,9 @@ export default function Cards() {
       <div className={styles.pagination}>
         <button
           disabled={currentPage === 1}
-          onClick={() => setCurrentPage(currentPage - 1)}
+          onClick={() => {
+            setCurrentPage(currentPage - 1), handleClick()
+          }}
         >
           Anterior
         </button>
@@ -60,14 +64,19 @@ export default function Cards() {
             className={`${styles.pageNumber} ${
               currentPage === pageNumber ? styles.active : ''
             }`}
-            onClick={() => setCurrentPage(pageNumber)}
+            onClick={() => {
+              setCurrentPage(pageNumber), handleClick()
+            }}
           >
             {pageNumber}
           </button>
         ))}
         <button
           disabled={games.length <= currentPage * 15}
-          onClick={() => setCurrentPage(currentPage + 1)}
+          onClick={() => {
+            setCurrentPage(currentPage + 1)
+            handleClick()
+          }}
         >
           Siguiente
         </button>
