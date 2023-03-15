@@ -17,7 +17,7 @@ export default function Landing() {
       <div className={styles.titleContainer}>
         <h1
           className={`${styles.title} ${styles.glitch}`}
-          data-text="Find the perfect game for every occasion"
+          data-text="Find the perfect game for every occasion!"
         >
           Find the perfect game for every occasion!
         </h1>

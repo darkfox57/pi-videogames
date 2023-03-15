@@ -33,7 +33,17 @@ gameId.get('/:id', async (req, res) => {
   } else {
    //si el id es de la api busca la informacion en la api y la organiza
    const response = await axios.get(`${url}games/${gameId}${API_KEY}`);
-
+   //get galeria de imagenes del juego
+   const images = await axios.get(`${url}games/${gameId}/screenshots${API_KEY}`)
+   //get galeria de trailers del juego
+   const videos = await axios.get(`${url}games/${gameId}/movies${API_KEY}`)
+   const gallery = images.data.results.map((i) => i.image)
+   const trailers = videos.data.results.map((v) => {
+    return {
+     media: v.data.max,
+     cover: v.preview
+    }
+   })
    // Desestructura la data que viene de la peticion de la api en un objeto
    const {
     id,
@@ -65,6 +75,9 @@ gameId.get('/:id', async (req, res) => {
     requirements: requirements?.en,
     tags: tags.map((t) => t.name),
     esrb_rating,
+
+    short_screenshots: gallery,
+    trailers,
    };
   }
 
@@ -97,14 +110,3 @@ module.exports = gameId
 
 
 
-//get galeria de imagenes del juego
-// const images = await axios.get(`${url}games/${gameId}/screenshots${API_KEY}`)
-//get galeria de trailers del juego
-// const videos = await axios.get(`${url}games/${gameId}/movies${API_KEY}`)
-// const gallery = images.data.results.map((i) => i.image)
-// const trailers = videos.data.results.map((v) => {
-//  return {
-//   media: v.data.max,
-//   cover: v.preview
-//  }
-// })

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { addGame, getGenres } from '../../redux/actions/actions'
 import styles from './addgame.module.css'
 import { validate } from './validation.js'
@@ -7,6 +8,7 @@ import { validate } from './validation.js'
 export default function AddGame() {
   const genres = useSelector((state) => state.genres)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(getGenres())
@@ -34,7 +36,7 @@ export default function AddGame() {
   const [errors, setErrors] = useState({
     ...gameData,
   })
-
+  const [success, setSuccess] = useState('')
   const handleInputChange = (e) => {
     const { name, value } = e.target
     let updatedGameData = { ...gameData }
@@ -53,13 +55,17 @@ export default function AddGame() {
     setErrors(validate(updatedGameData))
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     const errors = validate(gameData)
     setErrors(errors)
     if (Object.keys(errors).length === 0) {
       dispatch(addGame(gameData))
     }
+    setSuccess('Tu juego se ha creado correctamente')
+    setTimeout(() => {
+      navigate(`/add-game/success`)
+    }, 1500)
   }
 
   return (
@@ -138,9 +144,14 @@ export default function AddGame() {
             ))}
             <span>{errors.platforms}</span>
           </div>
-          <button type="submit" className={styles.sendBtn}>
+          <button
+            type="submit"
+            className={styles.sendBtn}
+            disabled={Object.keys(errors).length ? true : false}
+          >
             Submit
           </button>
+          <span>{success}</span>
         </form>
       </div>
     </>

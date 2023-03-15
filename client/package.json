@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vite test",
-    "eject": "vite eject"
+    "eject": "vite eject",
+    "format": "prettier --write .",
+    "lint": "eslint --fix . --ext .js,.jsx"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -28,6 +30,13 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.34.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.4",
     "vite": "^4.1.0"
   }
 }

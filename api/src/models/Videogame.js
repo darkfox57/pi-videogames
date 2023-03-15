@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     description: {
-      type: STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     launchDate: {

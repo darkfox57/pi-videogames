@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header/Header'
+import Success from './components/Success/Success'
 import Addgame from './pages/Addgame/Addgame'
 import Detail from './pages/Detail/Detail'
 import Home from './pages/Home/Home'
@@ -19,6 +20,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/add-game" element={<Addgame />} />
         <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/add-game/success" element={<Success />} />
       </Routes>
       <div className="video-bg">
         <video width="320" height="240" autoPlay={true} loop muted>
