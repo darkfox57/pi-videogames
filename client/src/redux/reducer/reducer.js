@@ -1,4 +1,4 @@
-import { ADD_GAME, FILTER_GENRES, FILTER_ORIGIN, GET_ERRORS, GET_GAME, GET_GAMES, GET_GENRES, ORDER_NAMES, ORDER_RATINGS, RESET_GAME, SEARCH_GAME } from '../actions/actions';
+import { ADD_GAME, FILTER_GENRES, FILTER_ORIGIN, GET_ERRORS, GET_GAME, GET_GAMES, GET_GENRES, ORDER_NAMES, ORDER_RATINGS, RESET_GAME, SEARCH_GAME, SET_CURRENT_PAGE } from '../actions/actions';
 
 const initialState = {
  game: {},
@@ -7,7 +7,8 @@ const initialState = {
  filtredGames: [],
  genres: [],
  searched: [],
- addedgame: {}
+ addedgame: {},
+ currentPage: 1
 }
 
 export default function (state = initialState, action) {
@@ -43,8 +44,16 @@ export default function (state = initialState, action) {
     ...state,
     genres: action.payload
    }
-
-
+  case SET_CURRENT_PAGE:
+   return {
+    ...state,
+    currentPage: action.payload,
+   }
+  case GET_ERRORS:
+   return {
+    ...state,
+    error: action.payload,
+   };
   case ORDER_NAMES:
    const copyNames = [...state.filtredGames];
    let orderedNames;
@@ -91,7 +100,7 @@ export default function (state = initialState, action) {
     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
     return 0;
    });
-   return { ...state, filtredGames: orderedGenres };
+   return { ...state, filtredGames: orderedGenres, currentPage: 1 };
 
   case FILTER_ORIGIN:
    const copyOrigins = [...state.games];
@@ -109,7 +118,7 @@ export default function (state = initialState, action) {
     if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
     return 0;
    });
-   return { ...state, filtredGames: orderedOrigin };
+   return { ...state, filtredGames: orderedOrigin, currentPage: 1 };
 
 
   default: return state

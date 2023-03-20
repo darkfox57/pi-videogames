@@ -14,39 +14,36 @@ export default function Card(props) {
       window.scrollTo(0, 0)
     }, 100)
   }
-  return (
-    <div className={styles.cardContainer}>
-      <Link to={`/detail/${id}`} onClick={handleClick}>
-        <figure className={styles.image}>
-          <img src={image} alt={title} className={styles.cardImage} />
-          <figcaption
-            className={styles.caption}
-            dangerouslySetInnerHTML={{ __html: stars + emptystar }}
-          ></figcaption>
-        </figure>
-        <div className={styles.cardContent}>
-          <h2>{title}</h2>
-          <div className={styles.genres}>
-            <div className={styles.genre}>
-              {genres?.slice(0, 3).map((genre, index) => (
-                <span key={index}>{genre?.name}</span>
-              ))}
-            </div>
-          </div>
-          <div className={styles.stores}>
-            {stores?.map((store, index) => {
-              const storeName = storesNames.find(
-                (s) => s.name === store?.store.name
-              )
-              const displayName = storeName
-                ? storeName.value
-                : store?.store.name
 
-              return <span key={index}>{displayName}</span>
-            })}
+  return (
+    <Link to={`/detail/${id}`} onClick={handleClick}>
+      <figure className={styles.image}>
+        <img src={image} alt={title} className={styles.cardImage} />
+        <figcaption
+          className={styles.caption}
+          dangerouslySetInnerHTML={{ __html: stars + emptystar }}
+        ></figcaption>
+      </figure>
+      <div className={styles.cardContent}>
+        <h2>{title}</h2>
+        <div className={styles.genres}>
+          <div className={styles.genre}>
+            {genres?.slice(0, 3).map((genre, index) => (
+              <span key={index}>{genre?.name}</span>
+            ))}
           </div>
         </div>
-      </Link>
-    </div>
+        <div className={styles.stores}>
+          {stores?.map((store, index) => {
+            const storeName = storesNames.find(
+              (s) => s.name === store?.store.name
+            )
+            const displayName = storeName ? storeName.value : store?.store.name
+
+            return <span key={index}>{displayName}</span>
+          })}
+        </div>
+      </div>
+    </Link>
   )
 }

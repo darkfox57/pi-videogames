@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addGame, getGenres } from '../../redux/actions/actions'
 import styles from './addgame.module.css'
+import GameCard from './GameCard/GameCard'
 import { validate } from './validation.js'
 
 export default function AddGame() {
@@ -37,6 +38,7 @@ export default function AddGame() {
     ...gameData,
   })
   const [success, setSuccess] = useState('')
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     let updatedGameData = { ...gameData }
@@ -69,14 +71,15 @@ export default function AddGame() {
   }
 
   return (
-    <>
-      <div className={styles.addGameContainer}>
+    <section className={styles.addGameContainer}>
+      <div className={styles.addGameFormContainer}>
         <h2>Add your game to our database</h2>
         <form
           className={styles.addGameForm}
           onSubmit={handleSubmit}
           method="post"
         >
+          <label htmlFor="name">Write the name of your game</label>
           <input
             type="text"
             name="name"
@@ -84,6 +87,7 @@ export default function AddGame() {
             onChange={handleInputChange}
           />
           <span>{errors.name}</span>
+          <label htmlFor="image">Insert your game image url</label>
           <input
             type="text"
             name="image"
@@ -91,6 +95,7 @@ export default function AddGame() {
             onChange={handleInputChange}
           />
           <span>{errors.image}</span>
+          <label htmlFor="description">Write your game description</label>
           <textarea
             type="text"
             name="description"
@@ -98,6 +103,7 @@ export default function AddGame() {
             onChange={handleInputChange}
           />
           <span>{errors.description}</span>
+          <label htmlFor="launchDate">Pick your game Launch Date</label>
           <input
             type="date"
             name="launchDate"
@@ -105,6 +111,7 @@ export default function AddGame() {
             onChange={handleInputChange}
           />
           <span>{errors.launchDate}</span>
+          <label htmlFor="rating">Pick your game rating</label>
           <input
             type="range"
             name="rating"
@@ -117,32 +124,38 @@ export default function AddGame() {
           <span>{gameData.rating}</span>
           <span>{errors.rating}</span>
           <div className={styles.genres}>
-            {genres.map((genre) => (
-              <label key={genre.id}>
-                <input
-                  type="checkbox"
-                  name="genres"
-                  value={genre.name}
-                  onChange={handleInputChange}
-                />
-                {genre.name}
-              </label>
-            ))}
-            <span>{errors.genres}</span>
+            <span>Pick your game genres</span>
+            <div className={styles.genresPick}>
+              {genres.map((genre) => (
+                <label key={genre.id}>
+                  <input
+                    type="checkbox"
+                    name="genres"
+                    value={genre.name}
+                    onChange={handleInputChange}
+                  />
+                  {genre.name}
+                </label>
+              ))}
+              <span>{errors.genres}</span>
+            </div>
           </div>
           <div className={styles.platforms}>
-            {platforms.map((p, index) => (
-              <label key={index}>
-                <input
-                  type="checkbox"
-                  name="platforms"
-                  value={p.name}
-                  onChange={handleInputChange}
-                />
-                {p.name}
-              </label>
-            ))}
-            <span>{errors.platforms}</span>
+            <span>Pick your game Platforms</span>
+            <div className={styles.platformsPick}>
+              {platforms.map((p, index) => (
+                <label key={index}>
+                  <input
+                    type="checkbox"
+                    name="platforms"
+                    value={p.name}
+                    onChange={handleInputChange}
+                  />
+                  {p.name}
+                </label>
+              ))}
+              <span>{errors.platforms}</span>
+            </div>
           </div>
           <button
             type="submit"
@@ -154,6 +167,7 @@ export default function AddGame() {
           <span>{success}</span>
         </form>
       </div>
-    </>
+      <GameCard gameData={gameData} />
+    </section>
   )
 }

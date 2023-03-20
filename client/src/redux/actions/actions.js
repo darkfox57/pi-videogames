@@ -11,6 +11,7 @@ export const ORDER_NAMES = 'ORDER_NAMES'
 export const FILTER_GENRES = 'FILTER_GENRES'
 export const ORDER_RATINGS = 'ORDER_RATINGS'
 export const FILTER_ORIGIN = 'FILTER_ORIGIN'
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 
 
 export const getGames = () => async (dispatch) => {
@@ -119,6 +120,12 @@ export const filterByOrigin = (origin) => ({
   payload: origin
 })
 
+export const setCurrentPage = (page) => {
+  return {
+    type: SET_CURRENT_PAGE,
+    payload: page,
+  }
+}
 
 
 

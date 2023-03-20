@@ -16,7 +16,7 @@ export default function Filters() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getGenres())
-  }, [dispatch])
+  }, [])
 
   const filterOrder = [
     {

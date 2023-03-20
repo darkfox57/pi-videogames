@@ -1,12 +1,20 @@
 .addGameContainer {
  display: flex;
- flex-direction: column;
- align-items: center;
+ flex-wrap: wrap;
  width: 100%;
  background-color: rgba(16, 18, 27, 0.4);
  backdrop-filter: blur(20px);
  -webkit-backdrop-filter: blur(20px);
  animation: fade-in 6s cubic-bezier(.25, 1, .30, 1) both;
+ padding: 0 50px;
+ justify-content: center;
+ padding: 50px;
+}
+
+.addGameFormContainer {
+ display: flex;
+ flex-direction: column;
+ max-width: 800px;
 }
 
 @keyframes fade-in {
@@ -52,8 +60,7 @@
 .genres,
 .platforms {
  display: flex;
- flex-wrap: wrap;
- max-width: 600px;
+ flex-direction: column;
  gap: 30px;
  padding: 50px;
  border: none;
@@ -63,6 +70,13 @@
  font-weight: 500;
  box-shadow: 0 0 0 1px rgba(113 119 144 / 25%);
  color: #f9fafb;
+}
+
+.genresPick,
+.platformsPick {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 30px;
 }
 
 .sendBtn {
@@ -82,4 +96,8 @@
 
 .sendBtn:enabled:hover {
  scale: 1.03;
+}
+
+.checkboxSelected {
+ background-color: red;
 }

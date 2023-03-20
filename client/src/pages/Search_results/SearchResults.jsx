@@ -13,7 +13,7 @@ export default function SearchResults() {
   const search = searchParams.get('name')
   useEffect(() => {
     dispatch(searchGame(search))
-  }, [search, dispatch])
+  }, [search])
   return (
     <div className={styles.cardsContainer}>
       {searched?.map((game) => (

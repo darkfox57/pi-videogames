@@ -6,11 +6,6 @@ import { getGames, getGenres } from '../../redux/actions/actions.js'
 import styles from './landing.module.css'
 
 export default function Landing() {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getGames())
-  }, [dispatch])
   return (
     <div className={styles.landing}>
       <img src={logo} alt="Game Lobby" className={styles.logo} />

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import loadgif from '../../assets/loading-cat.gif'
 import { getGame, resetGame } from '../../redux/actions/actions'
+import Loading from '../../utils/Loading'
 import styles from './detail.module.css'
 
 export default function Detail() {
@@ -16,16 +16,14 @@ export default function Detail() {
     dispatch(getGame(id)).finally(() => {
       setLoading(false)
     })
-  }, [id, dispatch])
+  }, [id])
 
   useEffect(() => {
     dispatch(resetGame())
   }, [dispatch])
   return (
     <section className={styles.detailWrapper}>
-      {loading && (
-        <img src={loadgif} alt="Loading..." className={styles.loading} />
-      )}
+      {loading && <Loading />}
       {!loading ? (
         <div className={styles.detailGame}>
           <div className={styles.mainContent}>
