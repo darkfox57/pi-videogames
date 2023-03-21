@@ -17,16 +17,18 @@ export default function SearchResults() {
   return (
     <div className={styles.cardsContainer}>
       {searched?.map((game) => (
-        <Card
-          key={game.id}
-          id={game.id}
-          title={game.name}
-          image={game.image}
-          rating={game.rating}
-          genres={game.genres}
-          released={game.launchDate}
-          stores={game.stores}
-        />
+        <div key={game.id} className={styles.cardContainer}>
+          <Card
+            key={game.id}
+            id={game.id}
+            title={game.name}
+            image={game.image}
+            rating={game.rating}
+            genres={game.genres}
+            released={game.launchDate}
+            stores={game.stores}
+          />
+        </div>
       ))}
     </div>
   )

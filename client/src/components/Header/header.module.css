@@ -1,135 +1,133 @@
 .header {
- max-width: 100%;
- height: 75px;
- position: sticky;
- place-items: center;
- place-content: space-around;
- background-color: rgba(16, 18, 27, 0.4);
- backdrop-filter: blur(20px);
- -webkit-backdrop-filter: blur(20px);
- border-bottom: 1px solid rgba(223, 223, 223, 0.45);
- z-index: 100;
- display: flex;
- top: 0;
+  max-width: 100%;
+  height: 75px;
+  position: sticky;
+  place-items: center;
+  place-content: space-around;
+  background-color: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(223, 223, 223, 0.45);
+  z-index: 100;
+  display: flex;
+  top: 0;
 }
 
 .logo {
- width: auto;
- max-height: 80px;
- cursor: pointer;
+  width: auto;
+  max-height: 80px;
+  cursor: pointer;
 }
 
 .navList {
- list-style: none;
- display: flex;
- flex-direction: row;
- flex-wrap: nowrap;
- gap: 30px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 30px;
 }
 
-
-
 .item {
- position: relative;
- min-width: 105px;
- text-align: center;
- color: #fff;
- -webkit-transition: color 0.3s;
- transition: color 0.3s;
- display: block;
- padding: 1em;
- cursor: pointer;
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
- user-select: none;
- -webkit-touch-callout: none;
- -khtml-user-select: none;
- -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: relative;
+  min-width: 105px;
+  text-align: center;
+  color: #fff;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  display: block;
+  padding: 1em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .link {
- display: flex;
- gap: 5px;
- align-items: center;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 .navList li {
- display: block;
- position: relative;
- margin: 0 1;
- text-decoration: none;
+  display: block;
+  position: relative;
+  margin: 0 1;
+  text-decoration: none;
 }
 
 .navList li::before,
 .item::before,
 .item::after {
- content: '';
- position: absolute;
- bottom: 0;
- width: 10px;
- height: 2px;
- opacity: 0;
- background-color: #fff;
- text-decoration: none;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 2px;
+  opacity: 0;
+  background-color: #fff;
+  text-decoration: none;
 }
 
 .item:hover {
- color: #be0d51;
+  color: #be0d51;
 }
 
 .item::before,
 .item::after {
- -webkit-transform: translate3d(0, 10px, 0);
- transform: translate3d(0, 10px, 0);
- -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
- transition: -webkit-transform 0.3s, opacity 0.3s;
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: -webkit-transform 0.3s, opacity 0.3s;
 }
 
 .item::before {
- left: 0;
- -webkit-transform-origin: 0% 0%;
- transform-origin: 0% 0%;
+  left: 0;
+  -webkit-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
 }
 
 .item::after {
- left: 0;
- -webkit-transform-origin: 100% 0%;
- transform-origin: 100% 0%;
+  left: 0;
+  -webkit-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
 }
 
 .link::before {
- left: 0;
- width: 100%;
- -webkit-transform: translate3d(0, 10px, 0);
- transform: translate3d(0, 10px, 0);
- -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
- transition: transform 0.3s, opacity 0.3s;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
 .current .link {
- color: #FC0441;
+  color: #fc0441;
 }
 
 .current .link::before,
 .current .link::after {
- opacity: 1;
+  opacity: 1;
 }
 
 .current .link::before {
- -webkit-transform: rotate3d(0, 0, 1, -90deg);
- transform: rotate3d(0, 0, 1, -90deg);
+  -webkit-transform: rotate3d(0, 0, 1, -90deg);
+  transform: rotate3d(0, 0, 1, -90deg);
 }
 
 .current .link::after {
- -webkit-transform: rotate3d(0, 0, 1, 90deg);
- transform: rotate3d(0, 0, 1, 90deg);
+  -webkit-transform: rotate3d(0, 0, 1, 90deg);
+  transform: rotate3d(0, 0, 1, 90deg);
 }
 
 .current ::before {
- opacity: 1;
- -webkit-transform: translate3d(0, 0, 0);
- transform: translate3d(0, 0, 0);
- -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
- transition: transform 0.3s, opacity 0.1s;
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
+  transition: transform 0.3s, opacity 0.1s;
 }

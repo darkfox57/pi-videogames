@@ -25,13 +25,16 @@ export default function Cards() {
 
   useEffect(() => {
     animateCards()
+    // setTimeout(() => {
+    //   removeAnimateCards()
+    // }, 6000)
   })
 
   const animateCards = () => {
     cardsRef.current.forEach((card, index) => {
       setTimeout(() => {
         card.classList.add(styles.animateCard)
-      }, 100 * index)
+      }, 200 * index)
     })
   }
 
@@ -49,7 +52,7 @@ export default function Cards() {
   return (
     <section className={styles.cardsWrapper}>
       <div className={styles.cardsContainer}>
-        {games.length === 0 && loading ? (
+        {games.length === 0 ? (
           <Loading />
         ) : games.length === 0 && !loading ? (
           <NoResults />
@@ -76,7 +79,7 @@ export default function Cards() {
             </div>
           ))}
       </div>
-      {cardsRef.current && !loading ? (
+      {cardsRef.current || !loading ? (
         <div className={styles.pagination}>
           <button
             disabled={currentPage === 1}
