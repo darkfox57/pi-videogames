@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { emptyStar, star } from '../../../utils/icons'
-import styles from './gameCard.module.css'
+import styles from './gameCard.module.scss'
 
 export default function GameCard(props) {
   const { gameData } = props

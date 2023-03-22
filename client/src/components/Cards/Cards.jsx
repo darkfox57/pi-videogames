@@ -4,7 +4,7 @@ import { getGames, setCurrentPage } from '../../redux/actions/actions'
 import Error from '../../utils/Error'
 import Loading from '../../utils/Loading'
 import Card from '../Card/Card'
-import styles from './cards.module.css'
+import styles from './cards.module.scss'
 
 const NoResults = () => <div>we have not found games.</div>
 

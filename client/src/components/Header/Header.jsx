@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/game-lobby-logo.webp'
 import Search from '../Search/Search'
-import styles from './header.module.css'
+import styles from './header.module.scss'
 
 export default function Header() {
   const onSearch = () => {}

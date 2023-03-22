@@ -63,16 +63,14 @@ h1 {
   background: linear-gradient(to bottom right, #fc0441, #f62da8);
   cursor: pointer;
   transition: border-color 0.25s, scale 0.3s ease-in-out;
-}
-
-.main-button:hover {
-  border-color: #646cff;
-  scale: 1.05;
-}
-
-.main-button:focus,
-.main-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  &:hover {
+    border-color: #646cff;
+    scale: 1.05;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
 }
 
 @media (prefers-color-scheme: light) {

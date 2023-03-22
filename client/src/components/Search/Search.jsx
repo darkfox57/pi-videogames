@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './search.module.css'
+import styles from './search.module.scss'
 
 export default function Search() {
   const navigate = useNavigate()

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getGame, resetGame } from '../../redux/actions/actions'
 import Loading from '../../utils/Loading'
-import styles from './detail.module.css'
+import styles from './detail.module.scss'
 
 export default function Detail() {
   const { id } = useParams()

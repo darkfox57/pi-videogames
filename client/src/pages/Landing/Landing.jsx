@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/gamers-lobby.png'
 import { getGames, getGenres } from '../../redux/actions/actions.js'
-import styles from './landing.module.css'
+import styles from './landing.module.scss'
 
 export default function Landing() {
   return (

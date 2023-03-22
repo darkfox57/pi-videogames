@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/game-lobby-logo.webp'
-import styles from './success.module.css'
+import styles from './success.module.scss'
 
 export default function Success() {
   return (

@@ -8,7 +8,7 @@ import {
   orderNames,
   orderRating,
 } from '../../redux/actions/actions'
-import styles from './filters.module.css'
+import styles from './filters.module.scss'
 
 export default function Filters() {
   // obtener y usar generos

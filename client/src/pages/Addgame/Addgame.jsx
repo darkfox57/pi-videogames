@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addGame, getGenres } from '../../redux/actions/actions'
-import styles from './addgame.module.css'
+import styles from './addgame.module.scss'
 import GameCard from './GameCard/GameCard'
 import { validate } from './validation.js'
 

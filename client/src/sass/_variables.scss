@@ -33,7 +33,7 @@ $main-white: #f5f5fa;
   background: linear-gradient(73deg, #c55d8f 0%, #f4696d 50%, #f27121 100%);
 }
 
-@mixin btnPrimary($border, $padding) {
+@mixin btnPrimary {
   border: none;
   padding: 10px 30px;
   width: fit-content;
@@ -49,20 +49,20 @@ $main-white: #f5f5fa;
   }
 }
 
-.cardList {
-  opacity: 0;
-  animation-name: animateCard;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+// .cardList {
+//   opacity: 0;
+//   animation-name: animateCard;
+//   animation-duration: 0.3s;
+//   animation-timing-function: ease-in-out;
+//   animation-fill-mode: forwards;
 
-  @each $i in 1 through $card-count {
-    &:nth-child(#{$i}) {
-      animation-delay: #{($i - 1) * 0.2}s;
-    }
-  }
+//   @each $i in 1 through $card-count {
+//     &:nth-child(#{$i}) {
+//       animation-delay: #{($i - 1) * 0.2}s;
+//     }
+//   }
 
-  &.animateCard {
-    animation-delay: 0s !important;
-  }
-}
+//   &.animateCard {
+//     animation-delay: 0s !important;
+//   }
+// }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import './App.css'
+import './App.scss'
 import Header from './components/Header/Header'
 import Success from './components/Success/Success'
 import Addgame from './pages/Addgame/Addgame'

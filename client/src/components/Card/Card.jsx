@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { emptyStar, star, storesNames } from '../../utils/icons'
-import styles from './card.module.css'
+import styles from './card.module.scss'
 
 export default function Card(props) {
   const { id, title, image, rating, genres, released, stores } = props

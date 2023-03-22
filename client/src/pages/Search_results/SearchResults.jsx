@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import { searchGame } from '../../redux/actions/actions'
-import styles from './results.module.css'
+import styles from './results.module.scss'
 
 export default function SearchResults() {
   const dispatch = useDispatch()
