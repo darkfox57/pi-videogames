@@ -1,0 +1,68 @@
+$main-color: #fe8a5a;
+$secondary-color: #4e4e4e;
+$text-color: #4e4e4e;
+$text-white: #f5f5fa;
+$title-font: 'muli', serif;
+$subtitle-font: 'muli', sans-serif;
+$font: 'system-ui', sans-serif;
+$main-dark: #13131a;
+$main-white: #f5f5fa;
+
+@mixin title {
+  font-family: $title-font;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 3.5rem;
+}
+
+@mixin subtitle {
+  font-family: $subtitle-font;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 3.5rem;
+}
+
+@mixin gradient {
+  background: #c55d8f;
+  background: -webkit-linear-gradient(
+    73deg,
+    #c55d8f 0%,
+    #f4696d 50%,
+    #f27121 100%
+  );
+  background: linear-gradient(73deg, #c55d8f 0%, #f4696d 50%, #f27121 100%);
+}
+
+@mixin btnPrimary($border, $padding) {
+  border: none;
+  padding: 10px 30px;
+  width: fit-content;
+  font-size: 1.3rem;
+  font-family: $subtitle-font;
+  font-weight: 300;
+  border-radius: 7px;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #000000;
+    color: #fff;
+    scale: 1.05;
+  }
+}
+
+.cardList {
+  opacity: 0;
+  animation-name: animateCard;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  @each $i in 1 through $card-count {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.2}s;
+    }
+  }
+
+  &.animateCard {
+    animation-delay: 0s !important;
+  }
+}
