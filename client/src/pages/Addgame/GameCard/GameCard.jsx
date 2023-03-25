@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { emptyStar, star } from '../../../utils/icons'
-import styles from './gameCard.module.scss'
+import {
+  AddGameCard,
+  CardContent,
+  CardImg,
+  GameCardWrapper,
+  GenreList,
+  Genres,
+  ImageCaption,
+  ImageContainer,
+} from './gameCard.styles'
 
 export default function GameCard(props) {
   const { gameData } = props
@@ -39,40 +48,37 @@ export default function GameCard(props) {
   const stars = star.repeat(Math.floor(data.rating))
   const emptystar = emptyStar.repeat(Math.floor(5 - Math.floor(data.rating)))
   return (
-    <section className={styles.gameCardWrapper}>
-      <h2 className={styles.gameCardTitle}>
-        Preview your fricking awesome game.
-      </h2>
-      <div className={styles.addGameCard}>
-        <figure className={styles.image}>
-          <img src={data.image} alt={data.name} className={styles.cardImage} />
-          <figcaption
-            className={styles.caption}
+    <GameCardWrapper>
+      <h2>Preview your fricking awesome game.</h2>
+      <AddGameCard>
+        <ImageContainer>
+          <CardImg src={data.image} alt={data.name} />
+          <ImageCaption
             dangerouslySetInnerHTML={{ __html: stars + emptystar }}
-          ></figcaption>
-        </figure>
-        <div className={styles.cardContent}>
+          ></ImageCaption>
+        </ImageContainer>
+        <CardContent>
           <h2>Name: {data.name}</h2>
           <p>Launch Date: {new Date(data.launchDate).toLocaleDateString()}</p>
           <p>Description: {data.description}</p>
-          <div className={styles.genres}>
+          <Genres>
             <span>Genres</span>
-            <div className={styles.genre}>
+            <GenreList>
               {data.genres.map((genre, index) => (
                 <span key={index}>{genre}</span>
               ))}
-            </div>
-          </div>
-          <div className={styles.stores}>
+            </GenreList>
+          </Genres>
+          <Genres>
             <span>Platforms</span>
-            <div className={styles.platforms}>
+            <GenreList>
               {data.platforms.map((platform, index) => (
                 <span key={index}>{platform}</span>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            </GenreList>
+          </Genres>
+        </CardContent>
+      </AddGameCard>
+    </GameCardWrapper>
   )
 }

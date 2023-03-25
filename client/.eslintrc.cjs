@@ -19,8 +19,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', 'styled-components-css'],
   rules: {
+    'styled-components-css/rule-name': 2,
     'space-before-function-paren': [
       'error',
       {

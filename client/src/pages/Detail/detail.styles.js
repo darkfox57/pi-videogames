@@ -1,4 +1,6 @@
-.detailWrapper {
+import styled, { keyframes } from 'styled-components'
+
+export const DetailWrapper = styled.section`
   padding: 50px 50px;
   scroll-behavior: smooth;
   background-color: rgba(16, 18, 27, 0.6);
@@ -7,91 +9,81 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+`
+
+const FadeIn = keyframes`
+from {
+ opacity: 0;
 }
 
-.detailGame {
+to {
+ opacity: 1;
+}
+`
+
+export const DetailGame = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
-  animation: fade-in 6s cubic-bezier(0.25, 1, 0.3, 1) both;
-}
+  animation: ${FadeIn} 6s cubic-bezier(0.25, 1, 0.3, 1) both;
+`
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.loading {
-  align-self: center;
-  justify-self: center;
-  width: 300px;
-}
-
-.mainContent {
+export const MainContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   align-items: center;
-}
+`
 
-.content {
+export const ContentBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
   align-items: center;
-}
+  h1, 
+  p, 
+  span {
+   margin: 0;
+  }
+  h1 {
+   font-size: 2.5rem;
+  }
+  p{
+   text-align: left;
+  }
+`
 
-.content h1,
-.content p,
-.content span {
-  margin: 0;
-}
-
-.content h1 {
-  font-size: 2.5rem;
-}
-
-.content p {
-  text-align: left;
-}
-
-.data {
+export const ContentData = styled.div`
   display: flex;
   gap: 50px;
   align-self: center;
-}
+`
 
-.features {
+export const Features = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-}
+`
 
-.feature {
+export const Feature = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
+`
 
-.gallery {
+export const Gallery = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-}
+`
 
-.trailers {
+export const Trailers = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   gap: 30px;
-}
-
-.trailers video {
+  video {
   width: 100%;
   height: auto;
 }
+`

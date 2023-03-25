@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addGame, getGenres } from '../../redux/actions/actions'
-import styles from './addgame.module.scss'
+import {
+  AddGameContainer,
+  AddGameForm,
+  AddGameFormContainer,
+  SelectorsBlock,
+  SelectorsItems,
+  SentBtn,
+} from './addGame.style'
 import GameCard from './GameCard/GameCard'
 import { validate } from './validation.js'
 
@@ -71,14 +78,10 @@ export default function AddGame() {
   }
 
   return (
-    <section className={styles.addGameContainer}>
-      <div className={styles.addGameFormContainer}>
+    <AddGameContainer>
+      <AddGameFormContainer>
         <h2>Add your game to our database</h2>
-        <form
-          className={styles.addGameForm}
-          onSubmit={handleSubmit}
-          method="post"
-        >
+        <AddGameForm onSubmit={handleSubmit} method="post">
           <label htmlFor="name">Write the name of your game</label>
           <input
             type="text"
@@ -123,9 +126,9 @@ export default function AddGame() {
           />
           <span>{gameData.rating}</span>
           <span>{errors.rating}</span>
-          <div className={styles.genres}>
+          <SelectorsBlock>
             <span>Pick your game genres</span>
-            <div className={styles.genresPick}>
+            <SelectorsItems>
               {genres.map((genre) => (
                 <label key={genre.id}>
                   <input
@@ -138,11 +141,11 @@ export default function AddGame() {
                 </label>
               ))}
               <span>{errors.genres}</span>
-            </div>
-          </div>
-          <div className={styles.platforms}>
+            </SelectorsItems>
+          </SelectorsBlock>
+          <SelectorsBlock>
             <span>Pick your game Platforms</span>
-            <div className={styles.platformsPick}>
+            <SelectorsItems>
               {platforms.map((p, index) => (
                 <label key={index}>
                   <input
@@ -155,19 +158,18 @@ export default function AddGame() {
                 </label>
               ))}
               <span>{errors.platforms}</span>
-            </div>
-          </div>
-          <button
+            </SelectorsItems>
+          </SelectorsBlock>
+          <SentBtn
             type="submit"
-            className={styles.sendBtn}
             disabled={Object.keys(errors).length ? true : false}
           >
             Submit
-          </button>
+          </SentBtn>
           <span>{success}</span>
-        </form>
-      </div>
+        </AddGameForm>
+      </AddGameFormContainer>
       <GameCard gameData={gameData} />
-    </section>
+    </AddGameContainer>
   )
 }

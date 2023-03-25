@@ -1,4 +1,6 @@
-.searchBar {
+import styled from 'styled-components'
+
+export const SearchBar = styled.form`
   height: 40px;
   display: flex;
   gap: 10px;
@@ -9,9 +11,9 @@
   transition: 0.4s;
   padding-left: 0;
   transition: all 0.3s ease-in-out;
-}
+`
 
-.input {
+export const SearchBarInput = styled.input`
   width: 100%;
   height: 100%;
   border: none;
@@ -28,27 +30,23 @@
   background-position: 16px 48%;
   color: #f9fafb;
   transition: all 0.3s ease-in-out;
-}
-
-.input::placeholder {
-  font-size: 15px;
+  &::placeholder{
+   font-size: 15px;
   color: rgb(113 119 144 / 78%);
+  }
+  &:focus-visible {
+   outline: none;
+   width: 600px;
 }
+`
 
-.input:focus:not(:focus-visible),
-.input:focus-visible {
-  outline: none;
-  width: 600px;
-}
-
-.submit {
+export const SearchSubmit = styled.button`
   border: none;
   background-color: #14162b;
   border-radius: 4px;
   padding: 5px 20px;
   transition: padding 0.3s ease-in-out;
-}
-
-.submit:hover {
-  padding: 5px 40px;
-}
+  &:hover {
+   padding: 5px 40px;
+  }
+`

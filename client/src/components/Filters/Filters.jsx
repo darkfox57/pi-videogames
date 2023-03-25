@@ -8,7 +8,12 @@ import {
   orderNames,
   orderRating,
 } from '../../redux/actions/actions'
-import styles from './filters.module.scss'
+import {
+  FiltersContainer,
+  FiltersWrapper,
+  InputFilter,
+  ResetBtn,
+} from './filters.styles'
 
 export default function Filters() {
   // obtener y usar generos
@@ -80,16 +85,15 @@ export default function Filters() {
   }
 
   return (
-    <section className={styles.filterSection}>
-      <div className={styles.selectors}>
+    <FiltersWrapper>
+      <FiltersContainer>
         <h2>Filters</h2>
-        <div className={styles.orderName}>
+        <div>
           <p>Sort by name</p>
-          <select
+          <InputFilter
             name="orderByName"
             defaultValue={'default'}
             onChange={handleFilter}
-            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrder.map((element) => (
@@ -97,15 +101,14 @@ export default function Filters() {
                 {element.value}
               </option>
             ))}
-          </select>
+          </InputFilter>
         </div>
-        <div className={styles.orderRating}>
+        <div>
           <p>Sort by Rating</p>
-          <select
+          <InputFilter
             name="orderByRating"
             defaultValue={'default'}
             onChange={handleFilter}
-            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrder.map((element) => (
@@ -113,15 +116,14 @@ export default function Filters() {
                 {element.value}
               </option>
             ))}
-          </select>
+          </InputFilter>
         </div>
-        <div className={styles.orderGender}>
+        <div>
           <p>Filter by Gender</p>
-          <select
+          <InputFilter
             name="filterByGenres"
             defaultValue={'default'}
             onChange={handleFilter}
-            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {genres.map((genre) => (
@@ -129,15 +131,14 @@ export default function Filters() {
                 {genre.name}
               </option>
             ))}
-          </select>
+          </InputFilter>
         </div>
-        <div className={styles.filterOrigin}>
+        <div>
           <p>Filter by Origin</p>
-          <select
+          <InputFilter
             name="Origin"
             defaultValue={'default'}
             onChange={handleFilter}
-            className={styles.inputFilter}
           >
             <option value="Default">--</option>
             {filterOrigin.map((o) => (
@@ -145,12 +146,10 @@ export default function Filters() {
                 {o.value}
               </option>
             ))}
-          </select>
+          </InputFilter>
         </div>
-        <button className={styles.resetButton} onClick={handleReset}>
-          Reset Filters
-        </button>
-      </div>
-    </section>
+        <ResetBtn onClick={handleReset}>Reset Filters</ResetBtn>
+      </FiltersContainer>
+    </FiltersWrapper>
   )
 }

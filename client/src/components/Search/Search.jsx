@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './search.module.scss'
+import { SearchBar, SearchBarInput, SearchSubmit } from './search.styles'
 
 export default function Search() {
   const navigate = useNavigate()
@@ -14,18 +14,15 @@ export default function Search() {
     setSearch('')
   }
   return (
-    <form onSubmit={handleSubmit} className={styles.searchBar}>
-      <input
-        className={styles.input}
+    <SearchBar onSubmit={handleSubmit}>
+      <SearchBarInput
         type="search"
         placeholder="Search your favorite videogame"
         name={search}
         onChange={handleInputValue}
         value={search}
       />
-      <button className={styles.submit} type="submit">
-        Search
-      </button>
-    </form>
+      <SearchSubmit type="submit">Search</SearchSubmit>
+    </SearchBar>
   )
 }
